@@ -1,0 +1,8 @@
+is every room/building enterable
+places that need agility moves (jump/roll/etc) to reach
+
+
+isometric is usually done in grid format
+- if camera is moveable, grid may not be needed
+- if camera is fixed, grid will be necessary to help with depth-of-field and general location
+- 
