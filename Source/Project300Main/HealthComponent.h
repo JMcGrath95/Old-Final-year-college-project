@@ -15,7 +15,7 @@ public:
 	UHealthComponent();
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	//Health Changing Methods
+	//Health Changing Functions
 	UFUNCTION(BlueprintCallable)
 		void AddHealth(int value);
 	UFUNCTION(BlueprintCallable)
@@ -30,18 +30,38 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int MaxHealth = 300;
 
+	//stamina variables
+	UPROPERTY(BlueprintReadWrite)
+		int CurrentStamina = 100;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int MaxStamina = 100;
+
 	//Defence
 	UPROPERTY(BlueprintReadWrite)
 		int CurrentDefence = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int StartingDefence = 0;
 
-	//Life Drain Variables
-	UPROPERTY(EditAnywhere)
+	//Life Drain Amount
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int DrainAmount = 5;
 	//Rate at which health drains 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float DrainRate = 1;
+
+	//Stamina Regen Amount
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int StaminaRegenAmount = 1;
+	//Stamina Regen Rate
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float StaminaRegenRate = 0.2;
+
+	//Stamina Regen Function
+	void RegenStamnina();
+	UFUNCTION(BlueprintCallable)
+	void SubtractStamina(int amount);
+	UFUNCTION(BlueprintCallable)
+	void AddStamina(int amount);
 
 	UPROPERTY(BlueprintReadOnly)
 		bool IsDead = false;
